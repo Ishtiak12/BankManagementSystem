@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Transaction Complete</title>
+</head>
+<body>
+    <h1>Transaction Complete</h1>
+    <p th:text="'Transaction ID: ' + ${transaction.transactionId}"></p>
+    <p th:text="'Account ID: ' + ${transaction.accountId}"></p>
+    <p th:text="'Type: ' + ${transaction.transactionType}"></p>
+    <p th:text="'Amount: $' + ${transaction.amount}"></p>
+    <p th:text="'Timestamp: ' + ${transaction.timestamp}"></p>
+    <a href="/accounts/${transaction.accountId}">Back to Account Details</a>
+</body>
+</html>

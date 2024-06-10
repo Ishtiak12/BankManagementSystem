@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account Details</title>
+</head>
+<body>
+    <h1>Account Details</h1>
+    <div>
+        <h2 th:text="${account.accountHolderName}'s Account"></h2>
+        <p th:text="'Account ID: ' + ${account.accountId}"></p>
+        <p th:text="'Balance: $' + ${account.balance}"></p>
+    </div>
+    <hr/>
+    <h2>Perform Transaction</h2>
+    <form action="/transactions/perform" method="post">
+        <input type="hidden" name="accountId" th:value="${account.accountId}"/>
+        <label for="type">Transaction Type:</label>
+        <select name="type" id="type">
+            <option value="DEPOSIT">Deposit</option>
+            <option value="WITHDRAWAL">Withdrawal</option>
+        </select>
+        <br/><br/>
+        <label for="amount">Amount:</label>
+        <input type="text" name="amount" id="amount" required/>
+        <br/><br/>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
